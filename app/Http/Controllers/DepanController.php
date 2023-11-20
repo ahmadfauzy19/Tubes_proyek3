@@ -15,10 +15,12 @@ class DepanController extends Controller
     {
         $profiles = Profile::orderBy('nama', 'asc')->get();
         $currentId = auth()->id();
+        $user = auth()->user();
 
         return view('depan.dataprofil', [
             'data' => $profiles,
             'currentId' => $currentId, // Menambahkan informasi $currentId ke data yang dikirimkan ke view
+            'user' => $user
         ]);
     }
 
@@ -28,8 +30,9 @@ class DepanController extends Controller
         $riwayatPekerjaan = RiwayatPekerjaan::where('profile_id', $profile->id)->get();
         $riwayatPendidikan = RiwayatPendidikan::where('profile_id', $profile->id)->get();
         $keahlian = Skill::where('profile_id', $profile->id)->get();
+        $currentId = auth()->id();
 
-        return view('depan.about', ['data' => ['profile' => $profile, 'riwayatPekerjaan' => $riwayatPekerjaan, 'riwayatPendidikan' => $riwayatPendidikan,'keahlian' => $keahlian ]]);
+        return view('depan.about', ['data' => ['profile' => $profile, 'riwayatPekerjaan' => $riwayatPekerjaan, 'riwayatPendidikan' => $riwayatPendidikan,'keahlian' => $keahlian, 'currentId'=>$currentId ]]);
     }
 
 }
