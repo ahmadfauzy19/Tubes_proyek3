@@ -50,6 +50,7 @@
                     </div>
                 @enderror
             </div>
+            <a href="{{ route('lupa_pass') }}">lupa password?</a>
 
             <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
             <div class="social-auth-links text-center mb-3">

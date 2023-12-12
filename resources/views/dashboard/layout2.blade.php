@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Home</title>
+    <title>{{ isset($title) ? $title : 'WPP7' }}</title>
     <link rel="stylesheet" href="{{ asset('admin') }}/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="{{ asset('admin') }}/vendors/base/vendor.bundle.base.css">
     <link rel="stylesheet" href="{{ asset('admin') }}/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
